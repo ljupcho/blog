@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.views.generic import ListView, DetailView
-from models import Post
+from blog.models import Post
 
 urlpatterns = patterns('',
     url(r'^$', ListView.as_view(
