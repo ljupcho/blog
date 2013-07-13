@@ -2,7 +2,6 @@ from django.http import HttpResponseRedirect
 from django.views.generic import DetailView
 from forms import CommentForm
 
-
 class PostDetailView(DetailView):
     methods = ['get', 'post']
 
