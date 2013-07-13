@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.views.generic import DetailView
-from blog.forms import CommentForm
+from forms import CommentForm
 
 
 class PostDetailView(DetailView):

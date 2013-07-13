@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.views.generic import ListView, DetailView
-from blog.models import Post
+from models import Post
 
 urlpatterns = patterns('',
     url(r'^$', ListView.as_view(
@@ -11,8 +11,8 @@ urlpatterns = patterns('',
     url(r'^post/(?P<slug>[a-zA-Z0-9-]+)/$', DetailView.as_view(
         queryset=Post.objects.all(),
         context_object_name="post"),
-        name="post"
-    ),
+        name="post",
+    ),                   
     # Examples:
     # url(r'^$', 'blog.views.home', name='home'),
     # url(r'^blog/', include('blog.foo.urls')),
@@ -23,3 +23,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),                       
 )
+
+# urlpatterns += patterns('',
+#         (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+#     )
