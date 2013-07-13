@@ -2,7 +2,6 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from djangotoolbox.fields import ListField, EmbeddedModelField
 
-
 class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, db_index=True)
     title = models.CharField(max_length=255)
