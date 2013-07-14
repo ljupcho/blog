@@ -1,7 +1,9 @@
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls.defaults import patterns, include, url
 from django.views.generic import ListView
 from models import Post
 from views import PostDetailView
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', ListView.as_view(
@@ -21,8 +23,8 @@ urlpatterns = patterns('',
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),                       
+    #Uncomment the next line to enable the admin:
+    url(r'^adminforposts/', include(admin.site.urls)),                       
 )
 
 # urlpatterns += patterns('',
