@@ -8,7 +8,7 @@
 
 {% block content %}
 {% if post.post_type == 'p' %}
-  <p>{{ post.body }}<p>
+  {% autoescape off %}<pre>{{ post.body }}</pre>{% endautoescape %} 
 {% endif %}
 {% if post.post_type == 'v' %}
   {{ post.embed_code|safe }}

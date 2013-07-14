@@ -4,7 +4,7 @@
     {% for post in posts_list %}
       <h2><a href="{% url post slug=post.slug %}">{{ post.title }}</a></h2>
         {% if post.post_type == 'p' %}
-          <p>{{ post.body|truncatewords:20 }}</p>
+          <p>{% autoescape off %}{{ post.body|truncatewords_html:100 }}{% endautoescape %} </p>
         {% endif %}
         {% if post.post_type == 'v' %}
           {{ post.embed_code|safe }}
