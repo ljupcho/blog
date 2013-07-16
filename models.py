@@ -36,3 +36,5 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     body = models.TextField(verbose_name="Comment")
     author = models.CharField(verbose_name="Name", max_length=255)
+    
+    

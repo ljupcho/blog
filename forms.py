@@ -1,7 +1,7 @@
-from django.forms import ModelForm
+from django import forms
 from models import Comment
 
-class CommentForm(ModelForm):
+class CommentForm(forms.ModelForm):
 
     def __init__(self, object, *args, **kwargs):
         """Override the default to store the original document
@@ -18,3 +18,6 @@ class CommentForm(ModelForm):
 
     class Meta:
         model = Comment
+        widgets = {
+          'body': forms.Textarea(attrs={'rows':6, 'cols':100}),
+        }

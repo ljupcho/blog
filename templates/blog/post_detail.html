@@ -27,6 +27,7 @@
     {% for comment in post.comments %}
        <p>{{ comment.body }}</p>
        <p><strong>{{ comment.author }}</strong> <small>on {{ comment.created_at }}</small></p>
+       <br/>
       {{ comment.text }}
     {% endfor %}
   {% endif %}
