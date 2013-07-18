@@ -3,19 +3,7 @@
 {% block content %}
     {% for post in posts_list %}
       <h2><a href="{% url post slug=post.slug %}">{{ post.title }}</a></h2>
-        {% if post.post_type == 'p' %}
-          <p>{% autoescape off %}{{ post.body|truncatewords_html:100 }}{% endautoescape %} </p>
-        {% endif %}
-        {% if post.post_type == 'v' %}
-          {{ post.embed_code|safe }}
-        {% endif %}
-        {% if post.post_type == 'i' %}
-          <p><img src="{{ post.image_url }}" /><p>
-        {% endif %}
-        {% if post.post_type == 'q' %}
-          <blockquote>{{ post.body|truncatewords:20 }}</blockquote>
-          <p>{{ post.author }}</p>
-        {% endif %}
+          <p>{% autoescape off %}{{ post.prebody }}{% endautoescape %} </p>
       <p>
         {{ post.created_at }} |
         {% with total=post.comments|length %}

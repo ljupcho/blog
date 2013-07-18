@@ -14,12 +14,12 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField()
     comments = ListField(EmbeddedModelField('Comment'), editable=False)
-    post_type = models.CharField(max_length=1, choices=POST_CHOICES, default='p')
-    
+    #post_type = models.CharField(max_length=1, choices=POST_CHOICES, default='p')
+    prebody = models.TextField(blank=True, help_text="The body of pre text")
     body = models.TextField(blank=True, help_text="The body of the Post / Quote")
-    embed_code = models.TextField(blank=True, help_text="The embed code for video")
-    image_url = models.URLField(blank=True, help_text="Image src")
-    author = models.CharField(blank=True, max_length=255, help_text="Author name")    
+    #embed_code = models.TextField(blank=True, help_text="The embed code for video")
+    #image_url = models.URLField(blank=True, help_text="Image src")
+    #author = models.CharField(blank=True, max_length=255, help_text="Author name")    
     
 
     def get_absolute_url(self):
